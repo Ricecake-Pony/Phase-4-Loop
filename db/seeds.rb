@@ -3,5 +3,12 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+puts "Clearing DB"
+User.destroy_all
+Event.destroy_all
+Event_settings.destroy_all
+puts "DB cleared!"
+
+puts "creating the users!"
+5.times {User.create(name:)}
+
