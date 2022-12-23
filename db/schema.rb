@@ -16,8 +16,6 @@ ActiveRecord::Schema.define(version: 2022_12_23_145608) do
     t.boolean "plus_one"
     t.integer "event_id", null: false
     t.integer "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_event_settings_on_event_id"
     t.index ["user_id"], name: "index_event_settings_on_user_id"
   end
@@ -26,8 +24,6 @@ ActiveRecord::Schema.define(version: 2022_12_23_145608) do
     t.string "title"
     t.string "description"
     t.string "attire"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -35,8 +31,6 @@ ActiveRecord::Schema.define(version: 2022_12_23_145608) do
     t.string "username"
     t.date "birthdate"
     t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "event_settings", "events"

@@ -19,13 +19,13 @@ puts "creating the users!"
     
     puts "Events being planned"
     strings = ["casual","business casual", "business"]
-    10.times {Event.create(title:"Go to" + Faker::Mountain.name, 
+    5.times {Event.create(title:"Go to " + Faker::Mountain.name, 
     description: Faker::Quotes::Shakespeare.hamlet_quote,
     attire: strings.sample)}
     puts "Events planned my man!"
 
     puts " Looking at Event Settings"
-    8.times {EventSetting.create(plus_one: Faker::Boolean.boolean, user: User.all.sample, event: Event.all.sample )}
+    5.times {EventSetting.create(plus_one: Faker::Boolean.boolean, user: User.all.sample, event: Event.all.sample )}
     puts "Event Settings Set, bro!"
 
     puts "Seeding done!"
