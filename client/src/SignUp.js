@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 function SignUp({ setUser }) {
+    
     const [username, setUsername] = useState("");
     const [name, setName] = useState("");
     const [birthdate, setBirthdate] = useState("");
@@ -27,7 +28,7 @@ function SignUp({ setUser }) {
         }
     });
     }
-
+    console.log(setUser)
     return (
     <div>
     <form onSubmit={handleSubmit}>
