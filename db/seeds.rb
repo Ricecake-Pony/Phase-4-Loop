@@ -13,7 +13,8 @@ puts "creating the users!"
     5.times {User.create(
         name: Faker::FunnyName.name, 
         username:Faker::Name.first_name, 
-        birthdate: Faker::Date.between(from: '1903-09-23', to: '2022-09-25'), password: "1")}
+        birthdate: Faker::Date.between(from: '1903-09-23', to: '2022-09-25'), 
+        password: "1")}
     
 puts "Users created yo!"
 

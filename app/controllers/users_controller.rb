@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-rescue_from ActiveRecord::RecordInvald, with: :authorize
 
+
+skip_before_action :authorize, only: [:create]
 
     def index
         users = User.all
