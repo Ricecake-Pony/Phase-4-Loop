@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function SignUp({ setUser }) {
+function SignUp({ user, setUser }) {
     
     const [username, setUsername] = useState("");
     const [name, setName] = useState("");
@@ -16,19 +16,21 @@ function SignUp({ setUser }) {
         "Content-Type": "application/json",
         },
         body: JSON.stringify({
-        name,
-        username,
-        birthdate,
-        password,
+        name: name,
+        username: username,
+        birthdate: birthdate,
+        password: password,
         password_confirmation: passwordConfirmation,
         }),
-    }).then((r) => {
+    })
+    .then((r) => {
         if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json()
+        .then((user) => setUser(user));
         }
     });
     }
-    console.log(setUser)
+    console.log(user)
     return (
     <div>
     <form onSubmit={handleSubmit}>
