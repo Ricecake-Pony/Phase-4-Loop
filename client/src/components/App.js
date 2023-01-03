@@ -24,7 +24,7 @@ function App() {
       </header>
 
     <Routes>
-    <Route exact path="/home" element={<Home/>}/>
+    <Route exact path="/home" element={<Home user={user} setUser ={setUser}/>}/>
       <Route exact path="/login" element={<Login  user= {user} setUser= {setUser} />}/>
       <Route exact path="/signup" element={<SignUp user= {user} setUser= {setUser} />}/>
     </Routes>
