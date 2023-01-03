@@ -2,7 +2,8 @@ import React from "react";
 import EventCard from './EventCard';
 
 export default function Home ({user, setUser}){
-    const eventList = user.map((userObj,i) => (
+    console.log(user)
+    const eventList = user.events.map((userObj,i) => (
         <EventCard event={userObj} user={user} setUser={setUser} key={i}/>
     ))
     

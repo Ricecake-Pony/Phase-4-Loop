@@ -8,9 +8,9 @@ import NavBar from './NavBar';
 
 function App() {
   const [user, setUser]= useState(null)
-
+  console.log(user)
   useEffect(() =>{
-    fetch("/signup")
+    fetch("/user_logged_in")
     .then (r => r.json())
     .then((user) => setUser(user))
     },[])
