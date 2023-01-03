@@ -1,24 +1,37 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login({ user, setUser }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [errors, setErrors] = useState([])
+
+    let navigate = useNavigate()
+
 
     function handleSubmit(e) {
-    e.preventDefault();
-    fetch("/login", {
-        method: "POST",
-        headers: {
-        "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }),
-    }).then((r) => {
-        if (r.ok) {
-        r.json().then((user) => setUser(user));
-        }
-    });
+        e.preventDefault();
+        fetch("/login", {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username, password }),
+        }).then((r) => {
+            if (r.ok) {
+                r.json().then((user) => {
+                    setUser(user)
+                    navigate('/home')
+                })
+            } else {
+                r.json().then(json => {
+                    console.log(json)
+                    setErrors(json.error)
+                })
+            }
+        });
     }
-
+    
     return (
     <div>
         <form onSubmit={handleSubmit}>
@@ -41,9 +54,9 @@ function Login({ user, setUser }) {
         />
         <button type="submit">Login</button>
         </form>
-        {/* <Routes>
+        {errors? <div className = "error-message">{errors}</div>: null}
 
-        </Routes> */}
+     
 
     </div>
     );
