@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   resources :event_settings, only: [:index]
-  resources :events, only: [:index]
+  resources :events, only: [:index, :create]
 
   get "/users", to: "users#index"
 
@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
+  post "/createvent", to: "events#create"
 
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
