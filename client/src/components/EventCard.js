@@ -1,7 +1,7 @@
 import React from "react";
 
-export default function EventCard({event, user, setUser}){
-    console.log(event)
+export default function EventCard({event, setting, user, setUser}){
+    console.log(event, setting)
 
     // plus_one = {event_settings: true}
     return(
