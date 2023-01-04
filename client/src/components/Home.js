@@ -1,5 +1,7 @@
 import React from "react";
 import EventCard from './EventCard';
+import CreateEvent from './CreateEvent';
+
 
 export default function Home ({user, setUser}){
     // console.log(user)
@@ -25,6 +27,7 @@ export default function Home ({user, setUser}){
         <div className = "eventlist">
         <h1>Welcome Home Loopers!</h1>
         {eventList}
+        <CreateEvent/>
         </div>
     )
 }
