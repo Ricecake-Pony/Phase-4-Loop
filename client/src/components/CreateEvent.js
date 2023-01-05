@@ -2,8 +2,8 @@ import {useState} from "react"
 import {useNavigate} from "react-router-dom"
 
 
-function CreateEvent ({event}) {
-    
+function CreateEvent ({userEvents, setUserEvents}) {
+    console.log(userEvents)
     // const {event, setting, user, setUser} = eventObj
     
     const [errors, setErrors] = useState([])
@@ -30,8 +30,9 @@ function CreateEvent ({event}) {
                 body: JSON.stringify(eventData),
             }).then((r) => {
                 if (r.ok) {
-                    r.json().then((newEvent) => {setEventData(...eventData, newEvent)
-                        navigate('/eventcontainer')
+                    r.json().then((newEvent) => {setUserEvents([...userEvents, newEvent])
+                        // [] make into an array, put setterfunction here
+                        // navigate('/eventcontainer')
                     })
                 } else {
                     r.json().then(json => {
@@ -46,7 +47,7 @@ function CreateEvent ({event}) {
 return (
     <div>
         <form onSubmit={handleSubmit}>
-        <h3>Add an Event!</h3>
+        <h1>Add an Event!</h1>
             <label>Event Title</label>
                 <input
                     type="text"
@@ -69,11 +70,12 @@ return (
                 <input
                     type="text"
                     name="attire"
-                    placeholder="casual, black tie..."
+                    placeholder="What shall I wear?"
                     autoComplete="off"
                     value={eventData.attire}
                     onChange={handleChange}
-                />  
+                /> 
+            <button type="submit">Add New Event!</button>
         </form>
         {errors? <div className = "error-message">{errors}</div>: null}
         </div>   

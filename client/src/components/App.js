@@ -5,6 +5,8 @@ import Login from './Login';
 import SignUp from './SignUp';
 import Home from './Home';
 import NavBar from './NavBar';
+import EventList from './EventList';
+
 
 function App() {
   const [user, setUser]= useState(null)
@@ -29,6 +31,7 @@ function App() {
       <Route exact path="/signup" element={<SignUp user= {user} setUser= {setUser} />}/>
       {/* Need events page for showing all events and creating events */}
       {/* Need event setting page that allows us to ... Ask the user if they're bringing a plus one to an event */}
+      <Route exact path="/events" element={<EventList/>}/>
     </Routes>
     </div>
   );

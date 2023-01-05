@@ -7,7 +7,7 @@ class EventsController < ApplicationController
 
     def create
         
-        new_event = Event.new (new_event_params)
+        new_event = Event.create (new_event_params)
         if new_event.valid?
             render json: new_event
         else
