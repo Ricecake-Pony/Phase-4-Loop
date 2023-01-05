@@ -1,13 +1,13 @@
 import React from "react";
-// import CreateEvent from './CreateEvent';
 import {useState} from "react"
+// import CreateEvent from './CreateEvent';
+
 // import {useNavigate} from "react-router-dom"
 
 
 export default function EventCard({event, title, description, attire}) {
     
 
-    // const {event, title, description, attire} = eventObj
     
     const [plusOne, setPlusOne] = useState(false)
 
@@ -23,6 +23,8 @@ export default function EventCard({event, title, description, attire}) {
 
         })  
     }    
+
+
     
     return(
         <div className="eventCard">

@@ -14,6 +14,7 @@ function CreateEvent ({event}) {
         attire: ""
 
 })
+    // const { event, title, description, attire} = event
 
     let navigate = useNavigate()
 
@@ -80,7 +81,7 @@ return (
         }
 
 
-export default CreateEvent 
+export default CreateEvent; 
 
 
 
