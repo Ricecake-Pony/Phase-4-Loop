@@ -3,6 +3,9 @@ import {useNavigate} from "react-router-dom"
 
 
 function CreateEvent ({event}) {
+    
+    // const {event, setting, user, setUser} = eventObj
+    
     const [errors, setErrors] = useState([])
 
     const [eventData, setEventData] = useState({
@@ -11,6 +14,7 @@ function CreateEvent ({event}) {
         attire: ""
 
 })
+    // const { event, title, description, attire} = event
 
     let navigate = useNavigate()
 
@@ -27,7 +31,7 @@ function CreateEvent ({event}) {
             }).then((r) => {
                 if (r.ok) {
                     r.json().then((newEvent) => {setEventData(...eventData, newEvent)
-                        navigate('/eventcard')
+                        navigate('/eventcontainer')
                     })
                 } else {
                     r.json().then(json => {
@@ -77,7 +81,7 @@ return (
         }
 
 
-export default CreateEvent 
+export default CreateEvent; 
 
 
 

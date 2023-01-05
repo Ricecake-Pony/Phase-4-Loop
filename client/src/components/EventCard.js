@@ -1,20 +1,72 @@
 import React from "react";
+import {useState} from "react"
+// import CreateEvent from './CreateEvent';
 
-export default function EventCard({event, setting, user, setUser}){
-    console.log(event, setting)
+// import {useNavigate} from "react-router-dom"
 
-    // plus_one = {event_settings: true}
+
+export default function EventCard({event, title, description, attire}) {
+    
+
+    
+    const [plusOne, setPlusOne] = useState(false)
+
+
+    function handleClick(e) {
+        e.preventDefault();
+        fetch("/eventcard", {
+            method: "GET",
+            headers: {"Content-Type": "application/json"},
+            // body: JSON.stringify(plusOne),
+        }).then((r) => {setPlusOne(!plusOne);
+            // navigate('/eventcard')
+
+        })  
+    }    
+
+
+    
     return(
         <div className="eventCard">
+        
             {`Event's Title: ${event.title}`}
             {`Event's Description: ${event.description}`}
             {`Event's Attire: ${event.attire}`}
-            {/* {`Got your plus one? ${event_settings.plus_one}`} */}
-            <br/>
-            <br/>
-            {/* {`Gotta plus one?: ${plus_one} yes : no `}  */}
-            {/* some how we can make this boolean work, we need to use a ternary.. */}
+        <br/> 
+        <button onClick={handleClick}>{plusOne ? "Lone Ranger" : "More Friends, More fun"}</button>
         </div>
 
     )
 }
+
+
+  //   setBringiningBuddy("I have Friends!")
+
+    // function addBuddy() {
+    //     if (plusOne) {
+    //         // eslint-disable-next-line no-undef
+    //         <button onClick={handleClick}>Lone Ranger</button>
+
+    //     } else {
+    //         <button onClick={handleClick}>Lone Ranger</button>
+    //     }
+    // }
+
+
+// const [bringiningBuddy, setBringiningBuddy] = useState("Lone Ranger")
+
+    // let navigate = useNavigate()
+
+
+
+// {bringiningBuddy}
+// {/* {`Gotta plus one?: ${plus_one} yes : no `}  */}
+//             {/* some how we can make this boolean work, we need to use a ternary.. */}
+
+
+    // plus_one = {event_settings: true}
+ // const handleClick = () => {
+    //     setPlusOne(!plusOne)
+    // }
+
+        // const [errors, setErrors] = useState([])

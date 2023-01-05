@@ -4,7 +4,7 @@ import CreateEvent from './CreateEvent';
 
 
 export default function Home ({user, setUser}){
-    // console.log(user)
+    //console.log(user)
     const eventList = user && user.events.map((userObj,i) => (
         <EventCard event={userObj} user={user} setUser={setUser} key={i} />))
 
