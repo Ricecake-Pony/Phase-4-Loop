@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   
   resources :event_settings, only: [:index]
   resources :events, only: [:index, :create]
+  # resources :users, only: [:index, :create]
+
 
   get "/users", to: "users#index"
 

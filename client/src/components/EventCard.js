@@ -1,46 +1,63 @@
 import React from "react";
 // import CreateEvent from './CreateEvent';
 import {useState} from "react"
-import {useNavigate} from "react-router-dom"
+// import {useNavigate} from "react-router-dom"
 
 
-export default function EventCard({eventObj}) {
+export default function EventCard({event, title, description, attire}) {
     
 
-    const {event, title, description, attire} = eventObj
+    // const {event, title, description, attire} = eventObj
     
     const [plusOne, setPlusOne] = useState(false)
 
-    // const [event_setting, setevent_setting] = useState(false)
-
-    let navigate = useNavigate()
 
     function handleClick(e) {
         e.preventDefault();
         fetch("/eventcard", {
             method: "GET",
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(plusOne),
+            // body: JSON.stringify(plusOne),
         }).then((r) => {setPlusOne(!plusOne);
-            navigate('/eventcard')
+            // navigate('/eventcard')
 
-        })        
+        })  
     }    
-
+    
     return(
         <div className="eventCard">
+        
             {`Event's Title: ${event.title}`}
             {`Event's Description: ${event.description}`}
             {`Event's Attire: ${event.attire}`}
-            <br/>
-        <button onClick={handleClick}>
-            {plusOne}
-        </button>
+        <br/> 
+        <button onClick={handleClick}>{plusOne ? "Lone Ranger" : "More Friends, More fun"}</button>
         </div>
 
     )
 }
 
+
+  //   setBringiningBuddy("I have Friends!")
+
+    // function addBuddy() {
+    //     if (plusOne) {
+    //         // eslint-disable-next-line no-undef
+    //         <button onClick={handleClick}>Lone Ranger</button>
+
+    //     } else {
+    //         <button onClick={handleClick}>Lone Ranger</button>
+    //     }
+    // }
+
+
+// const [bringiningBuddy, setBringiningBuddy] = useState("Lone Ranger")
+
+    // let navigate = useNavigate()
+
+
+
+// {bringiningBuddy}
 // {/* {`Gotta plus one?: ${plus_one} yes : no `}  */}
 //             {/* some how we can make this boolean work, we need to use a ternary.. */}
 
